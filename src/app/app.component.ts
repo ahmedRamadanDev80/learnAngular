@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'learnAngular';
+  msg = 'damn this is easy'
+  sayHello():string{
+    return `Hellooooo, ${this.msg}`
+  }
 }
