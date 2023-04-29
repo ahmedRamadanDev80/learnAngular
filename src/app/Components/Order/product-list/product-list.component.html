@@ -1,0 +1,35 @@
+<div class="form-group">
+  <label for="prdCat" class="form-label">category: </label>
+  <select class="form-control" name="cat" id="prdCat" [(ngModel)]="selectedCatId">
+    <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+  </select>
+</div>
+<div class="text-secondary">{{selectedCatId}}</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>image</th>
+            <th> av. quantity</th>
+            <th>price</th>
+            <th>count</th>
+            <th>buy</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prd of prdList">
+            <!-- safe navigation operator -->
+            <td>{{prd?.id}}</td>
+            <td>{{prd?.name}}</td>
+            <td><img [src]="prd?.imgUrl" alt="img"></td>
+            <td>{{prd?.quantity}}</td>
+            <td>{{prd?.price}}</td>
+            <!-- template variable -->
+            <td><input #itemCount  type="number" class="form-control"></td>
+            <td><button type="button" class="btn btn-secondary"(click)="buy(prd.price,itemCount.value)">buy</button></td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h3>order total : {{orderTotalPrice}}</h3>
