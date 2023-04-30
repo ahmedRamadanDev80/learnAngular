@@ -19,8 +19,8 @@ export class ProductListComponent {
       {id:2,name:'pc',price:21000,quantity:15,imgUrl:'https://fakeimg.pl/200x100/',categoryId:1},
       {id:3,name:'mechanical keyboard',price:200,quantity:100,imgUrl:'https://fakeimg.pl/200x100/',categoryId:2},
       {id:4,name:'logitec mouse',price:150,quantity:110,imgUrl:'https://fakeimg.pl/200x100/',categoryId:2},
-      {id:5,name:'asus screen',price:2000,quantity:40,imgUrl:'https://fakeimg.pl/200x100/',categoryId:3},
-      {id:6,name:'cannon camera',price:3000,quantity:60,imgUrl:'https://fakeimg.pl/200x100/',categoryId:4}
+      {id:5,name:'asus screen',price:2000,quantity:1,imgUrl:'https://fakeimg.pl/200x100/',categoryId:3},
+      {id:6,name:'cannon camera',price:3000,quantity:0,imgUrl:'https://fakeimg.pl/200x100/',categoryId:4}
     ];
     this.catList=[
       {id:1,name:'personal computers'},

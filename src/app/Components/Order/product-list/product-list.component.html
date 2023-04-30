@@ -8,7 +8,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>id</th>
+            <th>no</th>
             <th>name</th>
             <th>image</th>
             <th> av. quantity</th>
@@ -18,13 +18,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let prd of prdList">
+        <tr *ngFor="let prd of prdList;index as i"[ngClass]="{'bg-warning':prd?.quantity==0,'text-primary':prd?.quantity==0}">
             <!-- safe navigation operator -->
-            <td>{{prd?.id}}</td>
+            <td>{{i+1}}</td>
             <td>{{prd?.name}}</td>
             <td><img [src]="prd?.imgUrl" alt="img"></td>
-            <td>{{prd?.quantity}}</td>
-            <td>{{prd?.price}}</td>
+            <td>
+                <!-- <div *ngIf="prd.quantity !=0 else outofstock">{{prd?.quantity}}</div>
+                <ng-template #outofstock> out of stock! </ng-template> -->
+                <ng-container [ngSwitch]="prd.quantity">
+                    <div *ngSwitchCase="0">out of stock!</div>
+                    <div *ngSwitchCase="1">last item</div>
+                    <div *ngSwitchDefault>{{prd?.quantity}}</div>
+                </ng-container>
+            </td>
+            <td>{{prd?.price}} $</td>
             <!-- template variable -->
             <td><input #itemCount  type="number" class="form-control"></td>
             <td><button type="button" class="btn btn-secondary"(click)="buy(prd.price,itemCount.value)">buy</button></td>
