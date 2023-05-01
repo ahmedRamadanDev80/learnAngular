@@ -10,6 +10,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { ProductListComponent } from './Components/Order/product-list/product-list.component';
 import { FormsModule } from '@angular/forms';
 import { LightBoxDirective } from './Directives/light-box.directive';
+import { UsdToEgpPipe } from './Pipes/usd-to-egp.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LightBoxDirective } from './Directives/light-box.directive';
     SidebarComponent,
     HomeComponent,
     ProductListComponent,
-    LightBoxDirective
+    LightBoxDirective,
+    UsdToEgpPipe
   ],
   imports: [
     BrowserModule,

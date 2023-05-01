@@ -10,24 +10,26 @@ import { IProduct } from 'src/app/Models/iproduct';
 export class ProductListComponent {
   orderTotalPrice:number=0;
   selectedCatId:number=0;
+  orderDate:Date;
   catList:ICategory[];
   prdList:IProduct[];
   constructor()
   {
     this.prdList=[
-      {id:1,name:'laptop',price:20000,quantity:10,imgUrl:'https://fakeimg.pl/200x100/',categoryId:1},
-      {id:2,name:'pc',price:21000,quantity:15,imgUrl:'https://fakeimg.pl/200x100/',categoryId:1},
+      {id:1,name:'laptop',price:2000,quantity:10,imgUrl:'https://fakeimg.pl/200x100/',categoryId:1},
+      {id:2,name:'pc',price:2100,quantity:15,imgUrl:'https://fakeimg.pl/200x100/',categoryId:1},
       {id:3,name:'mechanical keyboard',price:200,quantity:100,imgUrl:'https://fakeimg.pl/200x100/',categoryId:2},
       {id:4,name:'logitec mouse',price:150,quantity:110,imgUrl:'https://fakeimg.pl/200x100/',categoryId:2},
-      {id:5,name:'asus screen',price:2000,quantity:1,imgUrl:'https://fakeimg.pl/200x100/',categoryId:3},
-      {id:6,name:'cannon camera',price:3000,quantity:0,imgUrl:'https://fakeimg.pl/200x100/',categoryId:4}
+      {id:5,name:'asus screen',price:800,quantity:1,imgUrl:'https://fakeimg.pl/200x100/',categoryId:3},
+      {id:6,name:'cannon camera',price:300,quantity:0,imgUrl:'https://fakeimg.pl/200x100/',categoryId:4}
     ];
     this.catList=[
       {id:1,name:'personal computers'},
       {id:2,name:'computer accessories'},
       {id:3,name:'screens'},
       {id:4,name:'cameras'},
-    ]
+    ];
+    this.orderDate = new Date();
   }
 
   buy(prdPrice:number,count:string){

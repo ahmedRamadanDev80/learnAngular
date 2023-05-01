@@ -3,6 +3,7 @@
   <select class="form-control" name="cat" id="prdCat" [(ngModel)]="selectedCatId">
     <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
   </select>
+  <p>date : {{orderDate|date:'longDate'}}</p>
 </div>
 <div class="text-secondary">{{selectedCatId}}</div>
 <table class="table">
@@ -13,6 +14,7 @@
             <th>image</th>
             <th> av. quantity</th>
             <th>price</th>
+            <th>price EGP</th>
             <th>count</th>
             <th>buy</th>
         </tr>
@@ -32,7 +34,8 @@
                     <div *ngSwitchDefault>{{prd?.quantity}}</div>
                 </ng-container>
             </td>
-            <td>{{prd?.price}} $</td>
+            <td>{{prd?.price | currency}}</td>
+            <td>{{prd.price | usdToEgp:31 | currency:'EGP':'code'}}</td>
             <!-- template variable -->
             <td><input #itemCount  type="number" class="form-control"></td>
             <td><button type="button" class="btn btn-secondary"(click)="buy(prd.price,itemCount.value)">buy</button></td>
