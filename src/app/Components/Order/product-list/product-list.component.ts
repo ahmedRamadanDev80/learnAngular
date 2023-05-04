@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 import { IProduct } from 'src/app/Models/iproduct';
 
@@ -10,7 +10,8 @@ import { IProduct } from 'src/app/Models/iproduct';
 export class ProductListComponent implements OnChanges {
   orderTotalPrice:number=0;
   @Input() sentCatId:number=0;
-  orderDate:Date;
+  @Output() totalPriceChanged:EventEmitter<number>;
+  // orderDate:Date;
   
   prdList:IProduct[];
   prdListOfCat:IProduct[]=[];
@@ -27,11 +28,14 @@ export class ProductListComponent implements OnChanges {
       {id:7,name:'cannon camera',price:300,quantity:0,imgUrl:'https://fakeimg.pl/100x50/',categoryId:4},
       {id:8,name:'sony camera',price:400,quantity:3,imgUrl:'https://fakeimg.pl/100x50/',categoryId:4}
     ];
-    this.orderDate = new Date();
+    this.totalPriceChanged=new EventEmitter<number>();
+    // this.orderDate = new Date();
   }
 
   buy(prdPrice:number,count:string){
-    this.orderTotalPrice = parseInt(count) *prdPrice;
+    this.orderTotalPrice += parseInt(count) *prdPrice;
+    //execute event
+    this.totalPriceChanged.emit(this.orderTotalPrice);
   }
   private filterProductsById(){
     if(this.sentCatId ==0)

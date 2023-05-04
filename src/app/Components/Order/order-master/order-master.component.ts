@@ -7,7 +7,7 @@ import { ICategory } from 'src/app/Models/icategory';
   styleUrls: ['./order-master.component.css']
 })
 export class OrderMasterComponent {
-  orderTotalPrice:number=0;
+  receivedorderTotalPrice:number=0;
   catList:ICategory[];
   selectedCatId:number=0;
   orderDate:Date;
@@ -20,5 +20,8 @@ export class OrderMasterComponent {
       {id:4,name:'cameras'},
     ];
     this.orderDate = new Date();
+  }
+  onTotalPriceChanged(totalPrice:number){
+    this.receivedorderTotalPrice = totalPrice;
   }
 }

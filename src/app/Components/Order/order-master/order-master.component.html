@@ -4,12 +4,12 @@
       <option value="0" selected>All</option>  
       <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
     </select>
-    <p>date : {{orderDate|date:'longDate'}}</p>
+    <!-- <p>date : {{orderDate|date:'longDate'}}</p> -->
   </div>
   <hr>
   <!-- nested components -->
   <!-- based on the selected category id it will be sent from parent class to child class -->
   <!-- and it will show the items of the category that got selected in the parent class using @Input -->
-  <app-product-list [sentCatId]="selectedCatId"></app-product-list>
+  <app-product-list [sentCatId]="selectedCatId" (totalPriceChanged)="onTotalPriceChanged($event)"></app-product-list>
   <hr>
-  <h3>order total price: {{orderTotalPrice}}</h3>
+  <h3>order total price: {{receivedorderTotalPrice}}</h3>
