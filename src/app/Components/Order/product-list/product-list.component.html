@@ -1,11 +1,5 @@
-<div class="form-group">
-  <label for="prdCat" class="form-label">category: </label>
-  <select class="form-control" name="cat" id="prdCat" [(ngModel)]="selectedCatId">
-    <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
-  </select>
-  <p>date : {{orderDate|date:'longDate'}}</p>
-</div>
-<div class="text-secondary">{{selectedCatId}}</div>
+
+<!-- <div class="text-secondary">{{selectedCatId}}</div> -->
 <table class="table">
     <thead>
         <tr>
@@ -20,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let prd of prdList;index as i"[ngClass]="{'bg-warning':prd?.quantity==0,'text-primary':prd?.quantity==0}">
+        <tr *ngFor="let prd of prdListOfCat;index as i"[ngClass]="{'bg-warning':prd?.quantity==0,'text-primary':prd?.quantity==0}">
             <!-- safe navigation operator -->
             <td>{{i+1}}</td>
             <td>{{prd?.name}}</td>
@@ -42,5 +36,4 @@
         </tr>
     </tbody>
 </table>
-<hr>
-<h3>order total : {{orderTotalPrice}}</h3>
+

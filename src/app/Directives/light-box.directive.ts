@@ -16,7 +16,7 @@ export class LightBoxDirective implements OnChanges{
 
   @HostListener('mouseover')onMouseOver()
   {
-    this.elemRef.nativeElement.style.border=`3px solid ${this.highlightColor}`;
+    this.elemRef.nativeElement.style.border=`2px solid ${this.highlightColor}`;
   }
 
   @HostListener('mouseout')onMouseOut()
