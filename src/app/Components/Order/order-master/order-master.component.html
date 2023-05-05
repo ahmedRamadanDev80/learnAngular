@@ -12,4 +12,9 @@
   <!-- and it will show the items of the category that got selected in the parent class using @Input -->
   <app-product-list [sentCatId]="selectedCatId" (totalPriceChanged)="onTotalPriceChanged($event)"></app-product-list>
   <hr>
+  <div>
+    <h3>enter your name:</h3>
+    <input #clientNameInp type="text" class="form-control">
+  </div>
   <h3>order total price: {{receivedorderTotalPrice}}</h3>
+  <button class="btn btn-success" (click)="completeOrder()">place order</button>

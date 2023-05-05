@@ -32,7 +32,7 @@
             <td>{{prd.price | usdToEgp:31 | currency:'EGP':'code'}}</td>
             <!-- template variable -->
             <td><input #itemCount  type="number" class="form-control"></td>
-            <td><button type="button" class="btn btn-secondary"(click)="buy(prd.price,itemCount.value)">buy</button></td>
+            <td><button type="button" class="btn btn-secondary"(click)="buy(prd.price,itemCount.value)">add to cart</button></td>
         </tr>
     </tbody>
 </table>
