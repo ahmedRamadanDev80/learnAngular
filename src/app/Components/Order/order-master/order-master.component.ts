@@ -33,6 +33,6 @@ export class OrderMasterComponent implements AfterViewInit{
   }
   completeOrder(){
     //test example
-    console.log(this.prdListCompObj.prdList)  ;
+    //console.log(this.prdListCompObj.prdList);
   }
 }
