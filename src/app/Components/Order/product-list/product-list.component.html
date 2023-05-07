@@ -10,7 +10,8 @@
             <th>price</th>
             <th>price EGP</th>
             <th>count</th>
-            <th>buy</th>
+            <th>details</th>
+            <th>add to cart</th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +33,10 @@
             <td>{{prd.price | usdToEgp:31 | currency:'EGP':'code'}}</td>
             <!-- template variable -->
             <td><input #itemCount  type="number" class="form-control"></td>
+            <!-- <td><button type="button" class="btn btn-secondary"(click)="openPrdDetails(prd.id)">details</button></td> -->
+            <td><a  class="btn btn-primary" [routerLink]="['/products',prd.id]"  role="button">Details</a></td>
             <td><button type="button" class="btn btn-secondary"(click)="buy(prd.price,itemCount.value)">add to cart</button></td>
+
         </tr>
     </tbody>
 </table>
