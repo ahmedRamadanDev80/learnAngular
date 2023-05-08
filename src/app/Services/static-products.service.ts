@@ -30,7 +30,12 @@ export class StaticProductsService {
    }
 
    getById(id:number):IProduct | null{
-    let found =  this.prdList.find(prd=>prd.id = id);
+    let found =  this.prdList.find(prd=>prd.id == id);
     return found ? found : null;
+   }
+
+   getIds():number[]{
+    let prdIds=this.prdList.map(prd=>prd.id);
+    return prdIds;
    }
 }
