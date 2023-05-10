@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, filter, map } from 'rxjs';
 import { PromotionAdsService } from 'src/app/Services/promotion-ads.service';
 import { StoreData } from 'src/app/ViewModels/store-data';
 
@@ -17,13 +17,20 @@ constructor(private promoAd:PromotionAdsService){
 }
  
   ngOnInit(): void {
+
     let observer = {
       next:(data:string)=>{ console.log(data); },
       error:(err:string)=>{ console.log(err);  },
       complete:()=>{ console.log('ads complete.'); }
     };
 
-    this.subscriptions.push( this.promoAd.getScheduledAds(3).subscribe(observer));
+     let filteredObservable = this.promoAd.getScheduledAds(3).pipe(
+      filter(ad=>ad.includes("friday")),
+      map(ad=>"ad: "+ ad)
+     );
+      let adsSubscription = filteredObservable.subscribe(observer);
+     this.subscriptions.push(adsSubscription);
+    //this.subscriptions.push( this.promoAd.getSerialAds().subscribe(observer));
    
   }
 toggleImg(){this.isImgShown = !this.isImgShown}
