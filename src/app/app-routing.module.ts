@@ -7,6 +7,7 @@ import { NotFoundComponent } from './Components/notFound/notFound.component';
 import { UserLoginComponent } from './Components/userLogin/userLogin.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './Components/Order/product-details/product-details.component';
+import { AuthGuard } from './Gaurds/auth.guard';
 
 const routes: Routes = [
   {path:'',component:MainLayoutComponent, children:[
@@ -14,7 +15,7 @@ const routes: Routes = [
     {path:'home',component:HomeComponent},
     {path:'products',component:ProductListComponent},
     {path:'products/:pid',component:ProductDetailsComponent},
-    {path:'orders',component:OrderMasterComponent}
+    {path:'orders',component:OrderMasterComponent,canActivate:[AuthGuard]}
   ]},
   
   {path:'login',component:UserLoginComponent},
