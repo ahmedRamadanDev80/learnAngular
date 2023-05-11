@@ -18,6 +18,8 @@ const routes: Routes = [
   ]},
   
   {path:'login',component:UserLoginComponent},
+  {path:'logout',component:UserLoginComponent},
+
   {path:'**',component:NotFoundComponent} //wild card path
 ];
 

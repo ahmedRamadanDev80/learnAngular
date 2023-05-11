@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAuthService } from 'src/app/Services/user-auth.service';
 
 @Component({
   selector: 'app-userLogin',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor() { }
+  isUserLogged:boolean = false;
+  constructor(private authService:UserAuthService) { }
 
   ngOnInit() {
+    this.isUserLogged = this.authService.isUserLogged;
   }
 
+  login(){
+    this.authService.login("username","password");
+    this.isUserLogged = this.authService.isUserLogged;
+  }
+    
+  logout(){
+    this.authService.logout();
+    this.isUserLogged = this.authService.isUserLogged;
+  }
 }
